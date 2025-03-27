@@ -1,117 +1,388 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bitcoin Investment Platform</title>
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-white text-gray-900">
+  </head>
+  <body class="bg-white-500 text-gray-900">
     <!-- Navbar -->
-    <nav class="bg-white shadow-lg p-6 flex justify-between items-center sticky top-0 z-50">
-        <a href="#" class="text-3xl font-extrabold text-gray-900 transition-transform duration-300 hover:scale-125">
-            <img src="logo.png" alt="BitInvest" class="h-8 inline"> <!-- Add your logo image -->
+    <nav
+      class="bg-white shadow-lg p-6 flex justify-between items-center sticky top-0 z-50"
+    >
+      <a
+        href="#"
+        class="text-3xl font-extrabold text-gray-900 transition-transform duration-300 hover:scale-125"
+      >
+        <img
+          src="https://sbcdn.bitpanda.com/500x147/d25c110523/bitpanda-logo-fcb-acm-nfl-psg.gif"
+          alt="BitInvest"
+          class="h-8 inline"
+        />
+      </a>
+      <button
+        id="menu-toggle"
+        class="block md:hidden text-gray-900 focus:outline-none"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16m-7 6h7"
+          ></path>
+        </svg>
+      </button>
+      <div
+        id="menu"
+        class="hidden flex-col md:flex md:flex-row md:space-x-8 text-lg items-center w-full md:w-auto bg-white md:bg-transparent absolute md:static top-16 left-0 shadow-lg md:shadow-none"
+      >
+        <a
+          href="#"
+          class="block p-4 md:p-0 border-b md:border-none hover:text-gray-500"
+          >Invest</a
+        >
+        <a
+          href="#"
+          class="block p-4 md:p-0 border-b md:border-none hover:text-gray-500"
+          >Prices</a
+        >
+        <a
+          href="#"
+          class="block p-4 md:p-0 border-b md:border-none hover:text-gray-500"
+          >Fusion</a
+        >
+        <a
+          href="#"
+          class="block p-4 md:p-0 border-b md:border-none hover:text-gray-500"
+        >
+          Web3
+          <span class="bg-green-300 text-xs font-bold px-2 py-1 rounded-lg"
+            >NEW</span
+          >
         </a>
-        <div class="flex space-x-8 text-lg items-center">
-            <a href="#" class="hover:text-gray-500 transition-all">Invest</a>
-            <a href="#" class="hover:text-gray-500 transition-all">Fusion</a>
-            <a href="#" class="hover:text-gray-500 transition-all">Web3 <span class="bg-green-300 text-xs font-bold px-2 py-1 rounded-lg">NEW</span></a>
-            <a href="#" class="hover:text-gray-500 transition-all">Features</a>
-            <a href="#" class="hover:text-gray-500 transition-all">Learn</a>
-            <a href="#" class="hover:text-gray-500 transition-all">Business</a>
-            <a href="#" class="hover:text-gray-500 transition-all">Company</a>
-            <a href="#" class="hover:text-gray-500 transition-all">Help</a>
-            <button class="text-gray-500 hover:text-gray-700">🔍</button>
-            <button class="text-gray-500 hover:text-gray-700">🌐 ▼</button>
-            <a href="#login" class="bg-gray-100 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-200">Log in</a>
-            <a href="#signup" class="bg-green-400 text-white px-4 py-2 rounded-lg hover:bg-green-500">Sign-up</a>
+        <a
+          href="#"
+          class="block p-4 md:p-0 border-b md:border-none hover:text-gray-500"
+          >Features</a
+        >
+        <a
+          href="#"
+          class="block p-4 md:p-0 border-b md:border-none hover:text-gray-500"
+          >Learn</a
+        >
+        <a
+          href="#"
+          class="block p-4 md:p-0 border-b md:border-none hover:text-gray-500"
+          >Business</a
+        >
+        <a
+          href="#"
+          class="block p-4 md:p-0 border-b md:border-none hover:text-gray-500"
+          >Company</a
+        >
+        <a
+          href="#"
+          class="block p-4 md:p-0 border-b md:border-none hover:text-gray-500"
+          >Help</a
+        >
+        <div class="flex flex-col md:flex-row md:space-x-4 p-4 md:p-0">
+          <a
+            href="#login"
+            class="bg-gray-100 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-200 text-center"
+            >Log in</a
+          >
+          <a
+            href="#signup"
+            class="bg-green-400 text-white px-4 py-2 rounded-lg hover:bg-green-500 text-center"
+            >Sign-up</a
+          >
         </div>
+      </div>
     </nav>
+    <script>
+      const menuToggle = document.getElementById("menu-toggle");
+      const menu = document.getElementById("menu");
+
+      menuToggle.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+    </script>
 
     <!-- Hero Section -->
-    <section class="text-center mt-20 bg-cover bg-center animate-fade-in" style="background-image: url('https://images.unsplash.com/photo-1640161704729-cbe966a08476?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
-        <div class="bg-white bg-opacity-90 p-16 rounded-3xl animate-fade-in">
-            <h1 class="text-6xl font-extrabold text-gray-900 drop-shadow-lg animate-pulse">Invest in Bitcoin Seamlessly</h1>
-            <p class="mt-6 text-xl text-gray-700">Buy, sell, and manage Bitcoin investments securely with ease.</p>
+    <section
+      class="text-center mt-20 bg-cover bg-center animate-fade-in px-4 md:px-0"
+      style="
+        background-image: url('https://images.unsplash.com/photo-1621501011941-c8ee93618c9a?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+      "
+    >
+      <div class="bg-white bg-opacity-60 p-8 md:p-16 animate-fade-in">
+        <h1
+          class="text-4xl md:text-6xl font-extrabold text-gray-900 drop-shadow-lg animate-pulse"
+        >
+          Invest in Bitcoin Seamlessly
+        </h1>
+        <p class="mt-6 text-lg md:text-xl text-gray-700">
+          Buy, sell, and manage Bitcoin investments securely with ease.
+        </p>
 
-            <div class="mt-10">
-                <span id="btcPrice" class="text-4xl font-bold text-yellow-500">Loading...</span>
-                <p class="text-lg mt-2 text-gray-800">Current Bitcoin Price (USD)</p>
-            </div>
-
-            <a href="#signup" class="mt-10 inline-block bg-yellow-500 text-white px-8 py-4 rounded-full hover:bg-yellow-600 transition-transform duration-300 hover:scale-125">Get Started</a>
+        <div class="mt-10">
+          <span id="btcPrice" class="text-4xl font-bold text-yellow-500"
+            >$12,450.00</span
+          >
+          <p class="text-lg mt-2 text-gray-800">Current Bitcoin Price (USD)</p>
         </div>
+
+        <a
+          href="#signup"
+          class="mt-10 inline-block bg-yellow-500 text-white px-8 py-4 rounded-full hover:bg-yellow-600 transition-transform duration-300 hover:scale-125"
+          >Get Started</a
+        >
+      </div>
+    </section>
+
+    <!-- Commodities, Crypto Indices, and Precious Metals Section -->
+    <section
+      class="max-w-6xl mx-auto mt-20 p-6 md:p-12 bg-gray-50 rounded-3xl shadow-2xl"
+    >
+      <h2 class="text-3xl md:text-4xl font-extrabold mb-8 text-center">
+        Explore Investment Options
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div class="p-8 bg-white rounded-xl shadow-lg text-center">
+          <h3 class="text-2xl font-semibold">Commodities</h3>
+          <p class="mt-4 text-gray-700">
+            Fortify your portfolio with commodities and shield it against
+            inflation.
+          </p>
+          <img
+            src="https://via.placeholder.com/100"
+            alt="Commodities"
+            class="mx-auto mt-4"
+          />
+        </div>
+        <div class="p-8 bg-white rounded-xl shadow-lg text-center">
+          <h3 class="text-2xl font-semibold">Crypto Indices</h3>
+          <p class="mt-4 text-gray-700">
+            Auto-invest in the whole crypto market with a single click.
+          </p>
+          <img
+            src="https://via.placeholder.com/100"
+            alt="Crypto Indices"
+            class="mx-auto mt-4"
+          />
+        </div>
+        <div class="p-8 bg-white rounded-xl shadow-lg text-center">
+          <h3 class="text-2xl font-semibold">Precious Metals</h3>
+          <p class="mt-4 text-gray-700">
+            Diversify your portfolio by investing in physically-backed precious
+            metals.
+          </p>
+          <img
+            src="https://via.placeholder.com/100"
+            alt="Precious Metals"
+            class="mx-auto mt-4"
+          />
+        </div>
+      </div>
     </section>
 
     <!-- Dashboard Section -->
-    <section id="dashboard" class="max-w-6xl mx-auto mt-20 bg-white p-12 rounded-3xl shadow-2xl">
-        <h2 class="text-4xl font-extrabold mb-8 text-center">Dashboard</h2>
+    <section
+      id="dashboard"
+      class="max-w-6xl mx-auto mt-20 bg-white p-6 md:p-12 rounded-3xl shadow-2xl"
+    >
+      <h2 class="text-3xl md:text-4xl font-extrabold mb-8 text-center">
+        Dashboard
+      </h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div class="p-8 bg-gray-100 rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-3 duration-300">
-                <h3 class="text-2xl font-semibold">Total Balance</h3>
-                <p class="text-4xl mt-4">$12,450.00</p>
-            </div>
-            <div class="p-8 bg-gray-100 rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-3 duration-300">
-                <h3 class="text-2xl font-semibold">Bitcoin Holdings</h3>
-                <p class="text-4xl mt-4">0.25 BTC</p>
-            </div>
-            <div class="p-8 bg-gray-100 rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-3 duration-300">
-                <h3 class="text-2xl font-semibold">Recent Transactions</h3>
-                <ul class="mt-4 space-y-2">
-                    <li>- Bought 0.05 BTC ($3,000)</li>
-                    <li>- Sold 0.02 BTC ($1,200)</li>
-                </ul>
-            </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12">
+        <div
+          class="p-8 bg-gray-100 rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-3 duration-300"
+        >
+          <h3 class="text-2xl font-semibold">Total Balance</h3>
+          <p class="text-4xl mt-4">$12,450.00</p>
         </div>
+        <div
+          class="p-8 bg-gray-100 rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-3 duration-300"
+        >
+          <h3 class="text-2xl font-semibold">Bitcoin Holdings</h3>
+          <p class="text-4xl mt-4">0.25 BTC</p>
+        </div>
+        <div
+          class="p-8 bg-gray-100 rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-3 duration-300"
+        >
+          <h3 class="text-2xl font-semibold">Recent Transactions</h3>
+          <ul class="mt-4 space-y-2">
+            <li>- Bought 0.05 BTC ($3,000)</li>
+            <li>- Sold 0.02 BTC ($1,200)</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <!-- Review Section -->
-    <section class="max-w-6xl mx-auto mt-20 p-12 bg-gray-50 rounded-3xl shadow-2xl">
-        <h2 class="text-4xl font-extrabold mb-8 text-center">What Our Users Say</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="p-8 bg-white rounded-xl shadow-lg">
-                <p class="text-lg">"BitInvest made it so easy for me to start investing in Bitcoin. Highly recommended!"</p>
-                <p class="mt-4 font-semibold">- Sarah K.</p>
-            </div>
-            <div class="p-8 bg-white rounded-xl shadow-lg">
-                <p class="text-lg">"I love the dashboard and how I can track all my investments in one place."</p>
-                <p class="mt-4 font-semibold">- James P.</p>
-            </div>
-            <div class="p-8 bg-white rounded-xl shadow-lg">
-                <p class="text-lg">"Secure and user-friendly platform. Perfect for both beginners and pros."</p>
-                <p class="mt-4 font-semibold">- Maria L.</p>
-            </div>
+    <section
+      class="max-w-6xl mx-auto mt-20 p-6 md:p-12 bg-gray-50 rounded-3xl shadow-2xl"
+    >
+      <h2 class="text-3xl md:text-4xl font-extrabold mb-8 text-center">
+        What Our Users Say
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div class="p-8 bg-white rounded-xl shadow-lg">
+          <p class="text-lg">
+            "BitInvest made it so easy for me to start investing in Bitcoin.
+            Highly recommended!"
+          </p>
+          <p class="mt-4 font-semibold">- Sarah K.</p>
         </div>
+        <div class="p-8 bg-white rounded-xl shadow-lg">
+          <p class="text-lg">
+            "I love the dashboard and how I can track all my investments in one
+            place."
+          </p>
+          <p class="mt-4 font-semibold">- James P.</p>
+        </div>
+        <div class="p-8 bg-white rounded-xl shadow-lg">
+          <p class="text-lg">
+            "Secure and user-friendly platform. Perfect for both beginners and
+            pros."
+          </p>
+          <p class="mt-4 font-semibold">- Maria L.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products, Technology Solutions, and App Links Section -->
+    <section class="bg-gray-50 py-12">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Products Column -->
+        <div>
+          <h4 class="text-xl font-semibold mb-4">Products</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:underline">Card</a></li>
+            <li><a href="#" class="hover:underline">Custody</a></li>
+            <li><a href="#" class="hover:underline">BEST</a></li>
+            <li><a href="#" class="hover:underline">Pantos</a></li>
+            <li><a href="#" class="hover:underline">App</a></li>
+          </ul>
+        </div>
+        <!-- Technology Solutions Column -->
+        <div>
+          <h4 class="text-xl font-semibold mb-4">
+            Bitpanda Technology Solutions
+          </h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:underline">Home</a></li>
+            <li><a href="#" class="hover:underline">Platform</a></li>
+            <li><a href="#" class="hover:underline">Customers</a></li>
+            <li><a href="#" class="hover:underline">Partners</a></li>
+            <li><a href="#" class="hover:underline">Insights</a></li>
+          </ul>
+        </div>
+        <!-- App Links Column -->
+        <div>
+          <h4 class="text-xl font-semibold mb-4">Get the app</h4>
+          <div class="flex space-x-4">
+            <a href="#">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                alt="Google Play"
+                class="h-12"
+              />
+            </a>
+            <a href="#">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"
+                alt="App Store"
+                class="h-12"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-black text-white py-12">
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-                <h3 class="text-2xl font-bold">BitInvest</h3>
-                <p class="mt-4">Secure and seamless Bitcoin investment platform.</p>
-            </div>
-
-            <div>
-                <h4 class="text-xl font-semibold">Quick Links</h4>
-                <ul class="mt-4 space-y-2">
-                    <li><a href="#" class="hover:underline">Home</a></li>
-                    <li><a href="#" class="hover:underline">About Us</a></li>
-                    <li><a href="#" class="hover:underline">Contact</a></li>
-                    <li><a href="#" class="hover:underline">Privacy Policy</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 class="text-xl font-semibold">Follow Us</h4>
-                <div class="flex space-x-4 mt-4">
-                    <a href="#" class="hover:underline">Twitter</a>
-                    <a href="#" class="hover:underline">LinkedIn</a>
-                    <a href="#" class="hover:underline">Facebook</a>
-                </div>
-            </div>
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- About Section -->
+        <div>
+          <h3 class="text-2xl font-bold">BitInvest</h3>
+          <p class="mt-4 text-gray-400">
+            Secure and seamless Bitcoin investment platform. Empowering you to
+            invest with confidence.
+          </p>
         </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-xl font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:underline">Home</a></li>
+            <li><a href="#" class="hover:underline">About Us</a></li>
+            <li><a href="#" class="hover:underline">Contact</a></li>
+            <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+            <li><a href="#" class="hover:underline">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div>
+          <h4 class="text-xl font-semibold mb-4">Resources</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:underline">Blog</a></li>
+            <li><a href="#" class="hover:underline">FAQs</a></li>
+            <li><a href="#" class="hover:underline">Support</a></li>
+            <li><a href="#" class="hover:underline">API Documentation</a></li>
+          </ul>
+        </div>
+
+        <!-- Social Media -->
+        <div>
+          <h4 class="text-xl font-semibold mb-4">Follow Us</h4>
+          <div class="flex space-x-4">
+            <a href="#" class="hover:text-gray-400">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Facebook_icon_2013.svg"
+                alt="Facebook"
+                class="h-6"
+              />
+            </a>
+            <a href="#" class="hover:text-gray-400">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/6/60/LinkedIn_Logo.svg"
+                alt="LinkedIn"
+                class="h-6"
+              />
+            </a>
+            <a href="#" class="hover:text-gray-400">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg"
+                alt="Twitter"
+                class="h-6"
+              />
+            </a>
+            <a href="#" class="hover:text-gray-400">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+                alt="Instagram"
+                class="h-6"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 text-center text-gray-500">
+        <p>&copy; 2023 BitInvest. All rights reserved.</p>
+      </div>
     </footer>
-</body>
+  </body>
 </html>
